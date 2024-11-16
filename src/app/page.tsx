@@ -1,4 +1,3 @@
-import { Button, HStack } from "@chakra-ui/react";
 import Image from "next/image";
 import styles from "./page.module.css";
 
@@ -13,10 +12,7 @@ export default function Home() {
 					</li>
 					<li>Save and see your changes instantly.</li>
 				</ol>
-				<HStack>
-					<Button>Click me</Button>
-					<Button>Click me</Button>
-				</HStack>
+
 				<div className={styles.ctas}>
 					<a
 						className={styles.primary}

@@ -26,7 +26,7 @@ export const Content = () => {
 						<div className="text-center">
 							<button
 								type="submit"
-								className="group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 disabled:pointer-events-none disabled:opacity-50 transition-all duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:-translate-y-1 active:scale-x-90 active:scale-y-110"
+								className="w-full group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-6 font-bold shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 text-white disabled:pointer-events-none disabled:opacity-50"
 							>
 								{!isLoading ? (
 									<>検索する</>
@@ -48,7 +48,6 @@ export const Content = () => {
 												clip-rule="evenodd"
 											/>
 										</svg>
-										<span>検索中</span>
 									</>
 								)}
 							</button>

@@ -10,6 +10,7 @@ type SearchInput = {
 	dormitory: boolean;
 	bounty: boolean;
 	celebrationMoney: boolean;
+	proper: boolean;
 };
 
 export const Content = () => {

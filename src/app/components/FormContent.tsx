@@ -3,10 +3,10 @@
 import { useFormContext } from "react-hook-form";
 
 const Salaries = [
-	{ id: 1, name: "20万円以上" },
-	{ id: 2, name: "25万円以上" },
-	{ id: 3, name: "30万円以上" },
-	{ id: 4, name: "35万円以上" },
+	{ id: 1, label: "20万円以上", value: 200000 },
+	{ id: 2, label: "25万円以上", value: 250000 },
+	{ id: 3, label: "30万円以上", value: 300000 },
+	{ id: 4, label: "35万円以上", value: 350000 },
 ];
 
 const Prefectures = [
@@ -30,8 +30,8 @@ export const FormContent = () => {
 					{...register("salary")}
 				>
 					{Salaries.map((salary) => (
-						<option key={salary.id} value={salary.name}>
-							{salary.name}
+						<option key={salary.id} value={salary.value}>
+							{salary.label}
 						</option>
 					))}
 				</select>

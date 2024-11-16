@@ -1,30 +1,20 @@
 "use client";
 
+import type { SearchInput } from "@/types";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { fetchJobOffers } from "../apis/jobOffers";
 import { FormContent } from "./FormContent";
-
-type SearchInput = {
-	salary: string;
-	prefecture: string;
-	dormitory: boolean;
-	bounty: boolean;
-	celebrationMoney: boolean;
-	proper: boolean;
-};
 
 export const Content = () => {
 	const methods = useForm<SearchInput>();
 	const [isLoading, setIsLoading] = useState(false);
-	const onSubmit = (data: SearchInput) => {
-		try {
-			setIsLoading(true);
-			console.log(data);
-		} catch (e) {
-			console.error(e);
-		} finally {
-			setIsLoading(false);
-		}
+	const onSubmit = async (data: SearchInput) => {
+		setIsLoading(true);
+		const { data: job_offers, error } = await fetchJobOffers(data).finally(() => setIsLoading(false));
+
+		if (error) throw error;
+		console.log(job_offers);
 	};
 
 	return (

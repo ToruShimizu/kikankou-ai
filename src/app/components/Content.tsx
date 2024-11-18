@@ -18,17 +18,19 @@ export const Content = () => {
 			const { data: job_offers, error } = await fetchJobOffers(data);
 			if (error) throw error;
 			const endpoint = new URL("/api/fetch_ai", process.env.NEXT_PUBLIC_BASE_URL).href;
-			const response = await fetch(endpoint, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ jobOffers: job_offers, requirements: data }),
-			});
+			console.log(endpoint);
 
-			const { message } = await response.json();
+			// const response = await fetch(endpoint, {
+			// 	method: "POST",
+			// 	headers: {
+			// 		"Content-Type": "application/json",
+			// 	},
+			// 	body: JSON.stringify({ jobOffers: job_offers, requirements: data }),
+			// });
 
-			setResponse(message);
+			// const { message } = await response.json();
+
+			// setResponse(message);
 		} catch (error) {
 			console.error("API error:", error);
 		} finally {

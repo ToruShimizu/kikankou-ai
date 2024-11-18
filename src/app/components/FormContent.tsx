@@ -16,17 +16,22 @@ const Prefectures = [
 	{ id: 4, name: "愛知県" },
 ];
 
-export const FormContent = () => {
+type Props = {
+	isLoading: boolean;
+};
+
+export const FormContent = ({ isLoading }: Props) => {
 	const { register } = useFormContext();
 	return (
 		<div className="grid gap-6 ">
-			<div>
+			<div className="grid gap-1 w-56">
 				<label htmlFor="salary" className="leading-7 text-sm text-gray-600">
 					希望月収
 				</label>
 				<select
 					id="salary"
-					className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
+					className="bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
+					disabled={isLoading}
 					{...register("salary")}
 				>
 					{Salaries.map((salary) => (
@@ -36,13 +41,14 @@ export const FormContent = () => {
 					))}
 				</select>
 			</div>
-			<div>
+			<div className="grid gap-1 w-56">
 				<label htmlFor="prefecture" className="leading-7 text-sm text-gray-600">
 					希望勤務地
 				</label>
 				<select
 					id="prefecture"
 					className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
+					disabled={isLoading}
 					{...register("prefecture")}
 				>
 					{Prefectures.map((prefecture) => (
@@ -61,6 +67,7 @@ export const FormContent = () => {
 							id="dormitory"
 							type="checkbox"
 							className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							disabled={isLoading}
 							{...register("dormitory")}
 						/>
 						<label htmlFor="dormitory" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-600">
@@ -73,6 +80,7 @@ export const FormContent = () => {
 						id="bounty"
 						type="checkbox"
 						className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+						disabled={isLoading}
 						{...register("bounty")}
 					/>
 					<label htmlFor="bounty" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-600">
@@ -84,6 +92,7 @@ export const FormContent = () => {
 						id="celebrationMoney"
 						type="checkbox"
 						className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+						disabled={isLoading}
 						{...register("celebrationMoney")}
 					/>
 					<label htmlFor="celebrationMoney" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-600">
@@ -95,6 +104,7 @@ export const FormContent = () => {
 						id="proper"
 						type="checkbox"
 						className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+						disabled={isLoading}
 						{...register("proper")}
 					/>
 					<label htmlFor="proper" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-600">

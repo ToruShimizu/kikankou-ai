@@ -2,6 +2,12 @@ import type { JobOffer, SearchInput } from "@/types";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
+export const corsHeaders = {
+	"Access-Control-Allow-Origin": process.env.NEXT_PUBLIC_BASE_URL as string,
+	"Access-Control-Allow-Methods": "POST, OPTIONS",
+	"Access-Control-Allow-Headers": "Content-Type",
+};
+
 const convertJobOffer = (jobOffers: JobOffer[]) => {
 	return jobOffers.map((jobOffer) => {
 		return {
@@ -20,7 +26,10 @@ export async function POST(req: Request) {
 	const { jobOffers, requirements }: { jobOffers: JobOffer[]; requirements: SearchInput } = await req.json();
 
 	if (!jobOffers || jobOffers.length === 0) {
-		return NextResponse.json({ message: "条件に一致する求人が見つかりませんでした。" }, { status: 404 });
+		return NextResponse.json(
+			{ message: "条件に一致する求人が見つかりませんでした。" },
+			{ status: 404, headers: corsHeaders },
+		);
 	}
 
 	const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -78,9 +87,12 @@ export async function POST(req: Request) {
 			],
 		});
 
-		return NextResponse.json({ message: response.choices[0].message.content });
+		return NextResponse.json({ message: response.choices[0].message.content, headers: corsHeaders });
 	} catch (error) {
 		console.error("OpenAI API error:", error);
-		return NextResponse.json({ message: "AIとの連携中にエラーが発生しました。" }, { status: 500 });
+		return NextResponse.json(
+			{ message: "AIとの連携中にエラーが発生しました。" },
+			{ status: 500, headers: corsHeaders },
+		);
 	}
 }

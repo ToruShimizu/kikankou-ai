@@ -17,8 +17,8 @@ export const Content = () => {
 		try {
 			const { data: job_offers, error } = await fetchJobOffers(data);
 			if (error) throw error;
-
-			const response = await fetch("/api/fetch_ai", {
+			const endpoint = new URL("/api/fetch_ai", process.env.NEXT_PUBLIC_BASE_URL).href;
+			const response = await fetch(endpoint, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

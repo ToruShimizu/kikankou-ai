@@ -2,7 +2,7 @@ import type { JobOffer, SearchInput } from "@/types";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
-export const corsHeaders = {
+const corsHeaders = {
 	"Access-Control-Allow-Origin": process.env.NEXT_PUBLIC_BASE_URL as string,
 	"Access-Control-Allow-Methods": "POST, OPTIONS",
 	"Access-Control-Allow-Headers": "Content-Type",

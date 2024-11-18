@@ -28,7 +28,7 @@ export async function POST(req: Request) {
 	if (!jobOffers || jobOffers.length === 0) {
 		return NextResponse.json(
 			{ message: "条件に一致する求人が見つかりませんでした。" },
-			{ status: 404, headers: corsHeaders },
+			{ status: 200, headers: corsHeaders },
 		);
 	}
 

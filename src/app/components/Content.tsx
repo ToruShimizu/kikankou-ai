@@ -91,16 +91,18 @@ export const Content = () => {
 										{response}
 
 										{!isLoading && (
-											<div className="text-center">
+											<>
 												<br />
 												<br />
+
 												<a
-													className="font-medium text-blue-600 underline dark:text-blue-500"
+													className="flex justify-center font-medium text-blue-600 underline dark:text-blue-500"
 													href="https://kikankou.jp/"
 												>
-													期間工.jpで{response === "条件に一致する求人が見つかりませんでした。" ? "探す" : "詳しくみる"}
+													期間工.jpで
+													{response === "条件に一致する求人が見つかりませんでした。" ? "探す" : "詳しくみる"}
 												</a>
-											</div>
+											</>
 										)}
 									</>
 								) : (

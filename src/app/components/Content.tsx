@@ -57,7 +57,7 @@ export const Content = () => {
 						<div className="text-center">
 							<button
 								type="submit"
-								className="w-full lg:w-80 group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-6 font-bold shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 text-white disabled:pointer-events-none disabled:opacity-50"
+								className="w-full lg:w-80 group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-6 font-bold shadow-lg shadow-cyan-500/50 text-white disabled:pointer-events-none disabled:opacity-50"
 								disabled={isLoading}
 							>
 								{!isLoading ? (
@@ -84,8 +84,9 @@ export const Content = () => {
 								)}
 							</button>
 						</div>
-						<div className="p-6 bg-white border border-gray-200 rounded-lg shadow">
-							<p className="text-sm whitespace-break-spaces leading-6 font-normal text-gray-700 dark:text-gray-400">
+						<div className="p-6 bg-white border border-gray-200 rounded-lg shadow grid gap-2">
+							<h3 className="font-semibold">検索結果</h3>
+							<p className="text-sm whitespace-break-spaces leading-6 font-normal text-gray-700">
 								{response ? (
 									<>
 										{response}
@@ -96,7 +97,7 @@ export const Content = () => {
 												<br />
 
 												<a
-													className="flex justify-center font-medium text-blue-600 underline dark:text-blue-500"
+													className="flex justify-center font-medium text-blue-600 underline"
 													href="https://kikankou.jp/"
 												>
 													期間工.jpで
@@ -106,7 +107,7 @@ export const Content = () => {
 										)}
 									</>
 								) : (
-									"検索結果が表示されます"
+									"希望条件を選択して検索を開始してください。"
 								)}
 							</p>
 						</div>

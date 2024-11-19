@@ -71,7 +71,7 @@ export async function POST(req: Request) {
 他に条件に合う求人がある場合、他社との比較を行い、当社の求人情報の魅力をアピールしてください。
 
 ### 注意点
-- 500文字以内でお願いします。
+- 300文字以内でお願いします。
 `;
 
 		const stream = await openai.chat.completions.create({

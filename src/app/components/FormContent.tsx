@@ -3,17 +3,22 @@
 import { useFormContext } from "react-hook-form";
 
 const Salaries = [
-	{ id: 1, label: "20万円以上", value: 200000 },
-	{ id: 2, label: "25万円以上", value: 250000 },
-	{ id: 3, label: "30万円以上", value: 300000 },
-	{ id: 4, label: "35万円以上", value: 350000 },
+	{ label: "20万円以上", value: 200000 },
+	{ label: "25万円以上", value: 250000 },
+	{ label: "30万円以上", value: 300000 },
+	{ label: "35万円以上", value: 350000 },
 ];
 
 const Prefectures = [
-	{ id: 1, name: "北海道" },
-	{ id: 2, name: "栃木県" },
-	{ id: 3, name: "神奈川県" },
-	{ id: 4, name: "愛知県" },
+	{ label: "愛知県", value: "愛知県" },
+	{ label: "茨城県", value: "茨城県" },
+	{ label: "大分県", value: "大分県" },
+	{ label: "神奈川県", value: "神奈川県" },
+	{ label: "群馬県", value: "群馬県" },
+	{ label: "静岡県", value: "静岡県" },
+	{ label: "栃木県", value: "栃木県" },
+	{ label: "福岡県", value: "福岡県" },
+	{ label: "福島県", value: "福島県" },
 ];
 
 type Props = {
@@ -35,7 +40,7 @@ export const FormContent = ({ isLoading }: Props) => {
 					{...register("salary")}
 				>
 					{Salaries.map((salary) => (
-						<option key={salary.id} value={salary.value}>
+						<option key={salary.label} value={salary.value}>
 							{salary.label}
 						</option>
 					))}
@@ -52,8 +57,8 @@ export const FormContent = ({ isLoading }: Props) => {
 					{...register("prefecture")}
 				>
 					{Prefectures.map((prefecture) => (
-						<option key={prefecture.id} value={prefecture.name}>
-							{prefecture.name}
+						<option key={prefecture.label} value={prefecture.value}>
+							{prefecture.value}
 						</option>
 					))}
 				</select>

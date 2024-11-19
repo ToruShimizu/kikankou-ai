@@ -59,7 +59,7 @@ export const FormContent = ({ isLoading }: Props) => {
 				</select>
 			</div>
 
-			<div className="grid gap-4">
+			<div className="grid gap-6">
 				<div>
 					<p className="leading-7 text-sm text-gray-600 mb-2">その他希望条件</p>
 					<div className="flex items-center">

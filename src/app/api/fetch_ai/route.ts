@@ -9,6 +9,7 @@ const corsHeaders = {
 };
 
 const convertJobOffer = (jobOffers: JobOffer[]) => {
+	if (!jobOffers || jobOffers.length === 0) return "条件に一致する求人が見つかりませんでした。";
 	return jobOffers.map((jobOffer) => {
 		return {
 			会社名: jobOffer.name,
@@ -24,13 +25,6 @@ const convertJobOffer = (jobOffers: JobOffer[]) => {
 
 export async function POST(req: Request) {
 	const { jobOffers, requirements }: { jobOffers: JobOffer[]; requirements: SearchInput } = await req.json();
-
-	if (!jobOffers || jobOffers.length === 0) {
-		return NextResponse.json(
-			{ message: "条件に一致する求人が見つかりませんでした。" },
-			{ status: 200, headers: corsHeaders },
-		);
-	}
 
 	const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
@@ -61,7 +55,8 @@ export async function POST(req: Request) {
 他社との比較も行い、求職者に魅力的な求人情報を提供してください。
 与えられた情報以外の情報は追加しないでください。
 必要に応じて改行や箇条書きを入れて、スマートフォンでも見やすい文章にしてください。
-お急ぎくださいなどの、緊急性や誘導するような
+お急ぎくださいなどの、緊急性や誘導するような文章は使わないでください。
+期間従業員の求人情報がない場合は、条件に一致する求人が見つかりませんでしたと返信してください。
 
 
 【】の次は改行してください。
@@ -79,15 +74,36 @@ export async function POST(req: Request) {
 - 500文字以内でお願いします。
 `;
 
-		const response = await openai.chat.completions.create({
-			model: "gpt-4",
+		const stream = await openai.chat.completions.create({
+			model: "gpt-4o-mini",
 			messages: [
 				{ role: "system", content: "あなたは求人アドバイザーです。" },
 				{ role: "user", content: prompt },
 			],
+			stream: true,
 		});
 
-		return NextResponse.json({ message: response.choices[0].message.content, headers: corsHeaders });
+		const readableStream = new ReadableStream({
+			async start(controller) {
+				try {
+					for await (const chunk of stream) {
+						const content = chunk.choices[0]?.delta?.content || "";
+						controller.enqueue(new TextEncoder().encode(content));
+					}
+				} catch (error) {
+					controller.error(error);
+				} finally {
+					controller.close();
+				}
+			},
+		});
+
+		return new Response(readableStream, {
+			headers: {
+				...corsHeaders,
+				"Content-Type": "text/plain; charset=utf-8",
+			},
+		});
 	} catch (error) {
 		console.error("OpenAI API error:", error);
 		return NextResponse.json(

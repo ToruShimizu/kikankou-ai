@@ -18,7 +18,6 @@ export const Content = () => {
 			const { data: job_offers, error } = await fetchJobOffers(data);
 			if (error) throw error;
 			const endpoint = new URL("/api/fetch_ai", process.env.NEXT_PUBLIC_BASE_URL).href;
-			console.log(endpoint);
 
 			const response = await fetch(endpoint, {
 				method: "POST",
@@ -27,11 +26,22 @@ export const Content = () => {
 				},
 				body: JSON.stringify({ jobOffers: job_offers, requirements: data }),
 			});
+			if (!response.body) {
+				console.error("データがありません");
+				return;
+			}
+			const reader = response.body.getReader();
+			const decoder = new TextDecoder("utf-8");
 
-			const { message } = await response.json();
+			while (true) {
+				const { done, value } = await reader.read();
+				if (done) break;
 
-			setResponse(message);
+				setResponse((prev) => prev + decoder.decode(value, { stream: true }));
+			}
 		} catch (error) {
+			console.log({ error });
+
 			console.error("API error:", error);
 		} finally {
 			setIsLoading(false);
@@ -70,30 +80,27 @@ export const Content = () => {
 												clipRule="evenodd"
 											/>
 										</svg>
-										検索中
 									</span>
 								)}
 							</button>
 						</div>
 						<div className="p-6 bg-white border border-gray-200 rounded-lg shadow">
-							<p className="whitespace-break-spaces leading-6 font-normal text-gray-700 dark:text-gray-400">
-								{isLoading ? (
-									"AIが検索中です。\nしばらくお待ちください。"
-								) : response ? (
+							<p className="text-sm whitespace-break-spaces leading-6 font-normal text-gray-700 dark:text-gray-400">
+								{response ? (
 									<>
 										{response}
 
-										{response !== "条件に一致する求人が見つかりませんでした。" && (
-											<>
+										{!isLoading && (
+											<div className="text-center">
 												<br />
 												<br />
 												<a
 													className="font-medium text-blue-600 underline dark:text-blue-500"
 													href="https://kikankou.jp/"
 												>
-													期間工.jpで詳しくみる
+													期間工.jpで{response === "条件に一致する求人が見つかりませんでした。" ? "探す" : "詳しくみる"}
 												</a>
-											</>
+											</div>
 										)}
 									</>
 								) : (

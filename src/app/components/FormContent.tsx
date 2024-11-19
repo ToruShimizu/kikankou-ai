@@ -76,7 +76,7 @@ export const FormContent = ({ isLoading }: Props) => {
 							{...register("dormitory")}
 						/>
 						<label htmlFor="dormitory" className="ms-2 text-sm font-medium text-gray-900">
-							寮
+							寮あり
 						</label>
 					</div>
 				</div>

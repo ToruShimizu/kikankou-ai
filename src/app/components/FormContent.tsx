@@ -66,11 +66,11 @@ export const FormContent = ({ isLoading }: Props) => {
 						<input
 							id="dormitory"
 							type="checkbox"
-							className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
 							disabled={isLoading}
 							{...register("dormitory")}
 						/>
-						<label htmlFor="dormitory" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-600">
+						<label htmlFor="dormitory" className="ms-2 text-sm font-medium text-gray-900">
 							寮
 						</label>
 					</div>
@@ -79,11 +79,11 @@ export const FormContent = ({ isLoading }: Props) => {
 					<input
 						id="bounty"
 						type="checkbox"
-						className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+						className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
 						disabled={isLoading}
 						{...register("bounty")}
 					/>
-					<label htmlFor="bounty" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-600">
+					<label htmlFor="bounty" className="ms-2 text-sm font-medium text-gray-900">
 						満了慰労金あり
 					</label>
 				</div>
@@ -91,11 +91,11 @@ export const FormContent = ({ isLoading }: Props) => {
 					<input
 						id="celebrationMoney"
 						type="checkbox"
-						className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+						className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
 						disabled={isLoading}
 						{...register("celebrationMoney")}
 					/>
-					<label htmlFor="celebrationMoney" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-600">
+					<label htmlFor="celebrationMoney" className="ms-2 text-sm font-medium text-gray-900">
 						入社特典あり
 					</label>
 				</div>
@@ -103,11 +103,11 @@ export const FormContent = ({ isLoading }: Props) => {
 					<input
 						id="proper"
 						type="checkbox"
-						className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+						className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
 						disabled={isLoading}
 						{...register("proper")}
 					/>
-					<label htmlFor="proper" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-600">
+					<label htmlFor="proper" className="ms-2 text-sm font-medium text-gray-900">
 						正社員登用制度あり
 					</label>
 				</div>

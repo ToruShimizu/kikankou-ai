@@ -49,7 +49,7 @@ export const Content = () => {
 	};
 
 	return (
-		<div className="grid gap-8 mx-auto w-full lg:w-80">
+		<div className="grid gap-8 mx-auto md:w-80">
 			<FormProvider {...methods}>
 				<form className="w-full grid" onSubmit={methods.handleSubmit(onSubmit)}>
 					<div className="grid gap-12">
@@ -57,7 +57,7 @@ export const Content = () => {
 						<div className="text-center">
 							<button
 								type="submit"
-								className="w-full lg:w-80 group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-6 font-bold shadow-lg shadow-cyan-500/50 text-white disabled:pointer-events-none disabled:opacity-50"
+								className="w-full md:w-80 group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-6 font-bold shadow-lg shadow-cyan-500/50 text-white disabled:pointer-events-none disabled:opacity-50"
 								disabled={isLoading}
 							>
 								{!isLoading ? (

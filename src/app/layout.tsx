@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-	title: "期間工求人AI検索",
+	title: "期間工求人AI検索 | 期間工求人をAIが最適マッチング",
 	description:
 		"期間工求人をAIが最適マッチング。給与、勤務地、寮費、入社祝い金など、あなたの希望条件を入力するだけで最適な期間工求人をAIが厳選してご紹介。面倒な求人探しをスマートに。",
 };

@@ -15,9 +15,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-	title: "期間工求人AIサーチ | 期間工求人をAIが最適マッチング",
+	title: "期間工求人をAIで自動マッチング｜高収入・寮完備の仕事を簡単検索",
 	description:
-		"期間工求人をAIが最適マッチング。給与、勤務地、寮費、入社祝い金など、あなたの希望条件を入力するだけで最適な期間工求人をAIが厳選してご紹介。面倒な求人探しをスマートに。",
+		"【完全無料】期間工求人をAIがあなたの希望条件から自動マッチング。高収入・寮完備・祝い金ありなど全国の優良求人から最適な仕事を提案。トヨタ・日産・スバルなど大手メーカーにも対応。",
 };
 const GTM_ID = "GTM-PDT3JDKG";
 export default function RootLayout({

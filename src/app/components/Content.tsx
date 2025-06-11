@@ -95,14 +95,24 @@ export const Content = () => {
 											<>
 												<br />
 												<br />
+												{response !== "条件に一致する求人が見つかりませんでした。" && (
+													<>
+														<a
+															className="flex justify-center font-medium text-blue-600 underline"
+															href="https://px.a8.net/svt/ejp?a8mat=3ZK8UX+5I9DZU+2LNO+626XU"
+															rel="nofollow"
+														>
+															求人情報
+														</a>
 
-												<a
-													className="flex justify-center font-medium text-blue-600 underline"
-													href="https://kikankou.jp/"
-												>
-													期間工.jpで
-													{response === "条件に一致する求人が見つかりませんでした。" ? "探す" : "詳しくみる"}
-												</a>
+														<img
+															width="1"
+															height="1"
+															src="https://www12.a8.net/0.gif?a8mat=3ZK8UX+5I9DZU+2LNO+626XU"
+															alt=""
+														/>
+													</>
+												)}
 											</>
 										)}
 									</>

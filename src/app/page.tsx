@@ -17,7 +17,9 @@ export default function Home() {
 
 			<footer className="flex bg-white rounded-lg shadow m-4 w-full">
 				<div className="w-full max-w-screen-xl mx-auto p-4">
-					<span className="block text-xs text-gray-500 sm:text-center">© 2024 期間工AI診断 . All Rights Reserved.</span>
+					<span className="block text-xs text-gray-500 sm:text-center">
+						© 2024 期間工AI診断ツール . All Rights Reserved.
+					</span>
 				</div>
 			</footer>
 		</div>

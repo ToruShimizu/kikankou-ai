@@ -15,9 +15,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-	title: "期間工AI診断【あなたに最適な高収入求人が見つかる！】無料マッチング",
+	title: "期間工AI診断ツール【あなたに最適な高収入求人が見つかる！】無料マッチング",
 	description:
-		"希望条件を入力するだけでAIが全国の期間工求人を徹底分析し、あなたにぴったりの案件を厳選マッチング！高収入・寮付き・未経験OKなど、失敗しない期間工探しは期間工AI診断にお任せください。",
+		"希望条件を入力するだけでAIが全国の期間工求人を徹底分析し、あなたにぴったりの案件を厳選マッチング！高収入・寮付き・未経験OKなど、失敗しない期間工探しは期間工AI診断ツールにお任せください。",
 };
 const GTM_ID = "GTM-PDT3JDKG";
 export default function RootLayout({
